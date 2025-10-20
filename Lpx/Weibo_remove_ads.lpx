@@ -51,7 +51,8 @@ http-response ^https:\/\/api\.weibo\.cn\/2\/(?:cardlist|page) script-path=https:
 http-response ^https:\/\/api\.weibo\.cn\/2\/comments\/build_comments\? script-path=https://kelee.one/Resource/JavaScript/Weibo/Weibo_remove_ads.js, requires-body=true, tag=移除评论区广告
 http-response ^https:\/\/api\.weibo\.cn\/2\/(?:container\/asyn|flowlist|flowpage) script-path=https://kelee.one/Resource/JavaScript/Weibo/Weibo_remove_ads.js, requires-body=true, tag=移除个人微博详情页广告
 http-response ^https:\/\/api\.weibo\.cn\/2\/friendships\/(?:create|destroy) script-path=https://kelee.one/Resource/JavaScript/Weibo/Weibo_remove_ads.js, requires-body=true, tag=移除关注、取消关注弹窗
-http-response ^https:\/\/api\.weibo\.cn\/2\/profile\/(?:container_timeline|dealatt|me|statuses\/tab|userinfo) script-path=https://kelee.one/Resource/JavaScript/Weibo/Weibo_remove_ads.js, requires-body=true, tag=移除个人主页广告
+# 为避免误删主页“访客”内容，这里不再匹配 profile/me 接口
+http-response ^https:\/\/api\.weibo\.cn\/2\/profile\/(?:container_timeline|dealatt|statuses\/tab|userinfo) script-path=https://kelee.one/Resource/JavaScript/Weibo/Weibo_remove_ads.js, requires-body=true, tag=移除个人主页广告
 http-response ^https:\/\/api\.weibo\.cn\/2\/shproxy\/chaohua\/discovery\/searchactive\? script-path=https://kelee.one/Resource/JavaScript/Weibo/Weibo_remove_ads.js, requires-body=true, tag=移除超话搜索页广告
 # 为避免好友圈视角下误删自己发布的微博，这里不再匹配普通的 container_timeline，仅匹配带后缀的类型
 http-response ^https:\/\/api\.weibo\.cn\/2\/statuses\/(?:container_detail(_comment)?|container_timeline_(?:hot|topic|topicpage|unread)|repost_timeline|unread_hot_timeline) script-path=https://kelee.one/Resource/JavaScript/Weibo/Weibo_remove_ads.js, requires-body=true, tag=移除信息流广告
