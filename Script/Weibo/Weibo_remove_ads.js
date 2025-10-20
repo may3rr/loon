@@ -13,7 +13,9 @@ try {
   let obj = JSON.parse(body);
 
   // 获取当前登录用户的ID（如果可用）
-  const currentUserId = obj.login_uid || obj.uid || null;
+  // 尝试从多个可能的字段获取当前用户ID
+  const currentUserId = obj.login_uid || obj.uid || obj.userInfo?.id || obj.userInfo?.idstr || 
+                         obj.user?.id || obj.user?.idstr || null;
 
   // 处理不同的API端点
   if (url.includes("/2/checkin/show") || url.includes("/2/client/publisher_list") || url.includes("/2/push/active")) {
