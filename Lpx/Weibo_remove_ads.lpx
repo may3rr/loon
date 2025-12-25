@@ -16,7 +16,7 @@ DOMAIN, huodong.weibo.cn, REJECT
 DOMAIN-SUFFIX, biz.weibo.com, REJECT
 
 #ip分流
-URL-REGEX,"^https:\/\/api\.weibo\.cn\/2\/comments\/create\?",PROXY
+URL-REGEX,"^https?:\/\/api\.weibo\.cn\/2\/comments\/create\?",PROXY
 URL-REGEX,"^https?:\/\/api\.weibo\.cn\/2\/statuses\/send\?",PROXY
 
 [Rewrite]
